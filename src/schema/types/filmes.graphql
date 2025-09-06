@@ -1,0 +1,8 @@
+type Filmes {
+    id: ID!
+    titulo: String
+    ano_lancamento: Int
+    sinopse: String
+    generos: [Generos!]
+    atores: [Atores!]
+}
