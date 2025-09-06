@@ -1,0 +1,5 @@
+type Generos {
+    id: ID!
+    nome: String
+    filmes: [Filmes!]
+}
