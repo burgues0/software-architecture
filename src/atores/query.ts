@@ -3,17 +3,12 @@ import type { Atores } from "@prisma/client";
 
 const atoresService = new AtoresService();
 
-interface AtorByIdArgs {
-    id: string;
-}
-
 export const queryResolvers = {
     Query: {
-        ator: async (args: AtorByIdArgs): Promise<Atores> => {
-            const id = parseInt(args.id);
-            return await atoresService.getAtorById(id);
+        ator: async (parent: any, args: { id: number }) => {
+            return await atoresService.getAtorById(args.id);
         },
-        atores: async (): Promise<Atores[]> => {
+        atores: async () => {
             return await atoresService.getAtores();
         }
     }

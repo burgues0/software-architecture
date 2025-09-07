@@ -12,12 +12,12 @@ export class AtoresRepository {
         return await prisma.atores.findUnique({ where: { id } });
     }
     async create(data: CreateAtores) {
-        return await prisma.atores.create({ data })
+        return await prisma.atores.create({ data });
     }
     async update(id: number, data: UpdateAtores) {
-        return await prisma.atores.update({ where: { id }, data })
+        return await prisma.atores.update({ where: { id }, data });
     }
     async delete(id: number) {
-        return await prisma.atores.delete({ where: { id } })
+        return await prisma.atores.delete({ where: { id } });
     }
 }
