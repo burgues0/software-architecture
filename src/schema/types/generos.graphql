@@ -1,5 +1,5 @@
 type Generos {
     id: ID!
-    nome: String
-    filmes: [Filmes!]
+    nome: String!
+    filmes: [Filmes!]!
 }
