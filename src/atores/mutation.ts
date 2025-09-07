@@ -7,11 +7,11 @@ const atoresService = new AtoresService();
 
 export const atoresMutationResolvers = {
     Mutation: {
-        criarAtor: async (args: CreateAtores): Promise<Atores> => {
-            return await atoresService.createAtor(args);
+        criarAtor: async (args: { input: CreateAtores }): Promise<Atores> => {
+            return await atoresService.createAtor(args.input);
         },
-        atualizarAtor: async (args: { id: number } & UpdateAtores): Promise<Atores> => {
-            return await atoresService.updateAtor(args.id, args);
+        atualizarAtor: async (args: { id: number; input: UpdateAtores }): Promise<Atores> => {
+            return await atoresService.updateAtor(args.id, args.input);
         },
         deletarAtor: async (args: { id: number }): Promise<Atores> => {
             return await atoresService.deleteAtor(args.id);

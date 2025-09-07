@@ -1,4 +1,5 @@
 import { AtoresRepository } from "./atores.repository.js";
+import { ValidationService } from "../lib/validation.service.js";
 import type { CreateAtores } from "./create-atores.dto.js";
 import type { UpdateAtores } from "./update-atores.dto.js";
 
@@ -17,8 +18,7 @@ export class AtoresService {
     async getAtorById(id: number){
         try {
             const ator = await this.atoresRepository.findById(id);
-            if (!ator) throw new Error(`Ator com o ID ${id} não encontrado.`);
-            return ator;
+            return ValidationService.validateExists(ator, "Ator", id);
         } catch (error) {
             throw new Error(`Erro ao buscar o ator especificado: ${error}`);
         }
@@ -26,8 +26,8 @@ export class AtoresService {
 
     async createAtor(data: CreateAtores){
         try {
-            if (!data.nome) throw new Error(`Nome não foi informado.`);
-            if (!data.nacionalidade) throw new Error(`Nacionalidade não foi informada.`);
+            ValidationService.validateRequiredField(data.nome, "Nome");
+            ValidationService.validateRequiredField(data.nacionalidade, "Nacionalidade");
             return await this.atoresRepository.create(data);
         } catch (error) {
             throw new Error(`Erro ao criar ator: ${error}`);
@@ -36,8 +36,8 @@ export class AtoresService {
 
     async updateAtor(id: number, data: UpdateAtores){
         try {
-            if (data.nome?.trim().length === 0) throw new Error(`Nome não pode ser vazio.`);
-            if (data.nacionalidade?.trim().length === 0) throw new Error(`Nacionalidade não pode ser vazio.`);
+            ValidationService.validateNonEmptyString(data.nome, "Nome");
+            ValidationService.validateNonEmptyString(data.nacionalidade, "Nacionalidade");
             return await this.atoresRepository.update(id, data);
         } catch (error) {
             throw new Error(`Erro ao atualizar ator: ${error}`)
