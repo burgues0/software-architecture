@@ -1,0 +1,14 @@
+import { FilmesService } from "./filmes.service.js";
+
+const filmesService = new FilmesService();
+
+export const queryResolvers = {
+    Query: {
+        filme: async (parent: any, args: { id: number }) => {
+            return await filmesService.getFilmeById(args.id);
+        },
+        filmes: async () => {
+            return await filmesService.getFilmes();
+        }
+    }
+};
