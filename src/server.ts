@@ -7,7 +7,6 @@ import { filmesQueryResolvers } from './filmes/query.js';
 import { filmesMutationResolvers } from './filmes/mutation.js';
 import { generosQueryResolvers } from './generos/query.js';
 import { generosMutationResolvers } from './generos/mutation.js';
-import { start } from 'repl';
 
 const resolvers = {
     Query: {
