@@ -5,7 +5,7 @@ import type { UpdateAtores } from "./update-atores.dto.js";
 
 const atoresService = new AtoresService();
 
-export const mutationResolvers = {
+export const atoresMutationResolvers = {
     Mutation: {
         criarAtor: async (args: CreateAtores): Promise<Atores> => {
             return await atoresService.createAtor(args);

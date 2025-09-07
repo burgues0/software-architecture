@@ -5,7 +5,7 @@ import type { UpdateFilmes } from "./update-filmes.dto.js";
 
 const filmesService = new FilmesService();
 
-export const mutationResolvers = {
+export const filmesMutationResolvers = {
     Mutation: {
         criarFilme: async (args: CreateFilmes): Promise<Filmes> => {
             return await filmesService.createFilme(args);
