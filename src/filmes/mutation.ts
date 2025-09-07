@@ -7,11 +7,11 @@ const filmesService = new FilmesService();
 
 export const filmesMutationResolvers = {
     Mutation: {
-        criarFilme: async (args: CreateFilmes): Promise<Filmes> => {
-            return await filmesService.createFilme(args);
+        criarFilme: async (args: { input: CreateFilmes }): Promise<Filmes> => {
+            return await filmesService.createFilme(args.input);
         },
-        atualizarFilme: async (args: { id: number } & UpdateFilmes): Promise<Filmes> => {
-            return await filmesService.updateFilme(args.id, args);
+        atualizarFilme: async (args: { id: number; input: UpdateFilmes }): Promise<Filmes> => {
+            return await filmesService.updateFilme(args.id, args.input);
         },
         deletarFilme: async (args: { id: number }): Promise<Filmes> => {
             return await filmesService.deleteFilme(args.id);

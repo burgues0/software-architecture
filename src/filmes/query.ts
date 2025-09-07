@@ -4,7 +4,7 @@ const filmesService = new FilmesService();
 
 export const filmesQueryResolvers = {
     Query: {
-        filme: async (parent: any, args: { id: number }) => {
+        filme: async (args: { id: number }) => {
             return await filmesService.getFilmeById(args.id);
         },
         filmes: async () => {

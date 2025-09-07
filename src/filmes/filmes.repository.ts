@@ -1,21 +1,43 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "../lib/prisma.js";
 import type { CreateFilmes } from "./create-filmes.dto.js";
 import type { UpdateFilmes } from "./update-filmes.dto.js";
 
-const prisma = new PrismaClient();
-
 export class FilmesRepository {
     async findAll(){
-        return await prisma.filmes.findMany();
+        return await prisma.filmes.findMany({
+            include: {
+                atores: true,
+                generos: true
+            }
+        });
     }
     async findById(id: number){
-        return await prisma.filmes.findUnique({ where: { id } });
+        return await prisma.filmes.findUnique({ 
+            where: { id },
+            include: {
+                atores: true,
+                generos: true
+            }
+        });
     }
     async create(data: CreateFilmes) {
-        return await prisma.filmes.create({ data });
+        return await prisma.filmes.create({ 
+            data,
+            include: {
+                atores: true,
+                generos: true
+            }
+        });
     }
     async update(id: number, data: UpdateFilmes) {
-        return await prisma.filmes.update({ where: { id }, data });
+        return await prisma.filmes.update({ 
+            where: { id }, 
+            data,
+            include: {
+                atores: true,
+                generos: true
+            }
+        });
     }
     async delete(id: number) {
         return await prisma.filmes.delete({ where: { id } });
