@@ -4,7 +4,7 @@ const generosService = new GenerosService();
 
 export const generosQueryResolvers = {
     Query: {
-        genero: async (parent: any, args: { id: number }) => {
+        genero: async (args: { id: number }) => {
             return await generosService.getGeneroById(args.id);
         },
         generos: async () => {

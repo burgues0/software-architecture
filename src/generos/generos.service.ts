@@ -1,4 +1,5 @@
 import { GenerosRepository } from "./generos.repository.js";
+import { ValidationService } from "../lib/validation.service.js";
 import type { CreateGeneros } from "./create-generos.dto.js";
 
 export class GenerosService {
@@ -16,8 +17,7 @@ export class GenerosService {
     async getGeneroById(id: number){
         try {
             const genero = await this.generosRepository.findById(id);
-            if (!genero) throw new Error(`Gênero com o ID ${id} não encontrado.`);
-            return genero;
+            return ValidationService.validateExists(genero, "Gênero", id);
         } catch (error) {
             throw new Error(`Erro ao buscar o gênero especificado: ${error}`);
         }
@@ -25,7 +25,7 @@ export class GenerosService {
 
     async createGenero(data: CreateGeneros){
         try {
-            if (!data.nome) throw new Error(`Nome não foi informado.`);
+            ValidationService.validateRequiredField(data.nome, "Nome");
             return await this.generosRepository.create(data);
         } catch (error) {
             throw new Error(`Erro ao criar gênero: ${error}`);

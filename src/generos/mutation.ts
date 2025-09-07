@@ -5,8 +5,8 @@ const generosService = new GenerosService();
 
 export const generosMutationResolvers = {
     Mutation: {
-        criarGenero: async (parent: any, args: CreateGeneros) => {
-            return await generosService.createGenero(args);
+        criarGenero: async (args: { input: CreateGeneros }) => {
+            return await generosService.createGenero(args.input);
         }
     }
 };
