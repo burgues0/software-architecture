@@ -1,5 +1,0 @@
-input AtoresInput {
-    nome: String!
-    nacionalidade: String!
-    filmes: [Filmes!]!
-}

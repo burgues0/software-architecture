@@ -1,6 +1,0 @@
-type Atores {
-    id: ID!
-    nome: String!
-    nacionalidade: String!
-    filmes: [Filmes!]!
-}

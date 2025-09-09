@@ -1,4 +1,0 @@
-input GenerosInput {
-    nome: String!
-    filmes: [Filmes!]!
-}

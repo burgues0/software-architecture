@@ -1,5 +1,0 @@
-input FilmesInput {
-    titulo: String!
-    ano_lancamento: Int!
-    sinopse: String!
-}

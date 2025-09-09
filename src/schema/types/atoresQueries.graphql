@@ -1,4 +1,0 @@
-type Query {
-    ator(id: ID!): Atores!
-    atores: [Atores!]!
-}
