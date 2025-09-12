@@ -25,9 +25,9 @@ export class AtoresDatasource {
 
     async criar(nome: string, dataNascimento: string): Promise<Ator> {
         const novoAtor: Ator = {
-        id: uuidv4(),
-        nome,
-        dataNascimento
+            id: uuidv4(),
+            nome,
+            dataNascimento
         };
         this.atores.push(novoAtor);
         return novoAtor;
