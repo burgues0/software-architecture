@@ -21,8 +21,8 @@ export class GenerosDatasource {
 
     async criar(nome: string): Promise<Genero> {
         const novoGenero: Genero = {
-        id: uuidv4(),
-        nome
+            id: uuidv4(),
+            nome
         };
         this.generos.push(novoGenero);
         return novoGenero;
