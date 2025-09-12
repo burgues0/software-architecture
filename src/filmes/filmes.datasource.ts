@@ -19,11 +19,11 @@ export class FilmesDatasource {
 
     async criar(titulo: string, anoLancamento: number, generoId: string): Promise<Filme> {
         const novoFilme: Filme = {
-        id: uuidv4(),
-        titulo,
-        anoLancamento,
-        generoId,
-        atorIds: []
+            id: uuidv4(),
+            titulo,
+            anoLancamento,
+            generoId,
+            atorIds: []
         };
         this.filmes.push(novoFilme);
         return novoFilme;
@@ -34,10 +34,10 @@ export class FilmesDatasource {
         if (index === -1) return null;
         
         this.filmes[index] = { 
-        ...this.filmes[index]!,
-        titulo, 
-        anoLancamento, 
-        generoId 
+            ...this.filmes[index]!,
+            titulo, 
+            anoLancamento, 
+            generoId 
         };
         return this.filmes[index]!;
     }
@@ -55,7 +55,7 @@ export class FilmesDatasource {
         if (!filme) return false;
         
         if (!filme.atorIds.includes(atorId)) {
-        filme.atorIds.push(atorId);
+            filme.atorIds.push(atorId);
         }
         return true;
     }
@@ -66,7 +66,7 @@ export class FilmesDatasource {
         
         const index = filme.atorIds.indexOf(atorId);
         if (index > -1) {
-        filme.atorIds.splice(index, 1);
+            filme.atorIds.splice(index, 1);
         }
         return true;
     }
