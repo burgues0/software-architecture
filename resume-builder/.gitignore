@@ -1,0 +1,10 @@
+output/
+dist/
+node_modules/
+*.log
+*.tmp
+*.tsbuildinfo
+.env
+.DS_Store
+.vscode/
+.idea/
