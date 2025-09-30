@@ -1,0 +1,12 @@
+{
+    "defaultCrypto": "bitcoin",
+    "refreshInterval": 30,
+    "thresholdStrategy": {
+        "buyPrice": 45000,
+        "sellPrice": 55000
+    },
+    "variationStrategy": {
+        "percentage": 5,
+        "timeWindow": 15
+    }
+}
