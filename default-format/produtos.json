@@ -1,0 +1,17 @@
+[
+    {
+        "id": "1",
+        "name": "Notebook Dell",
+        "price": 2500.50
+    },
+    {
+        "id": "2",
+        "name": "Mouse Logitech",
+        "price": 89.90
+    },
+    {
+        "id": "3",
+        "name": "Teclado Mecânico",
+        "price": 450.00
+    }
+]

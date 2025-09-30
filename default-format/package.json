@@ -1,0 +1,20 @@
+{
+    "name": "default-format",
+    "version": "1.0.0",
+    "description": "Sistema para padronização de arquivos de produtos",
+    "main": "app.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node app.js",
+        "dev": "tsc && node app.js"
+    },
+    "dependencies": {
+        "csv-parser": "^3.0.0",
+        "xml2js": "^0.6.2"
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "@types/xml2js": "^0.4.11",
+        "typescript": "^5.0.0"
+    }
+}
