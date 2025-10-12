@@ -1,0 +1,23 @@
+{
+  "name": "logistics-console",
+  "version": "1.0.0",
+  "description": "Sistema de registro de eventos para console",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "ts-node src/main.ts",
+    "build": "tsc",
+    "dev": "ts-node src/main.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.21",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "logging",
+    "console",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT"
+}
