@@ -1,0 +1,19 @@
+{
+  "name": "logistics-console",
+  "version": "1.0.0",
+  "description": "Sistema de logística para acompanhar pacotes usando State Pattern e Command Pattern",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "ts-node src/main.ts",
+    "build": "tsc",
+    "dev": "ts-node src/main.ts"
+  },
+  "keywords": ["typescript", "state-pattern", "command-pattern", "logistics"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  }
+}
