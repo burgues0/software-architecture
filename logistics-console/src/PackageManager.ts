@@ -2,13 +2,14 @@ import { Package } from './Package';
 
 export class PackageManager {
   private packages: Map<string, Package> = new Map();
+  private globalTime: number = 0;
 
   registerPackage(code: string): boolean {
     if (this.packages.has(code)) {
-      return false; // Pacote já existe
+      return false;
     }
     
-    const pkg = new Package(code);
+    const pkg = new Package(code, this.globalTime);
     this.packages.set(code, pkg);
     return true;
   }
@@ -19,8 +20,14 @@ export class PackageManager {
   }
 
   updateAllPackages(): void {
+    this.globalTime++;
     for (const pkg of this.packages.values()) {
-      pkg.update();
+      const oldStatus = pkg.getStatus();
+      pkg.updateToGlobalTime(this.globalTime);
+      const newStatus = pkg.getStatus();
+      if (oldStatus !== newStatus) {
+        console.log(`Pacote ${pkg.getCode()}: ${oldStatus} → ${newStatus}`);
+      }
     }
   }
 
