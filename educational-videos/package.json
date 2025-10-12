@@ -1,7 +1,7 @@
 {
-  "name": "logistics-console",
+  "name": "educational-videos",
   "version": "1.0.0",
-  "description": "Sistema de registro de eventos para console",
+  "description": "Sistema de gerenciamento de acesso a vídeos educativos",
   "main": "dist/main.js",
   "scripts": {
     "start": "ts-node src/main.ts",
@@ -12,12 +12,5 @@
     "@types/node": "^20.19.21",
     "ts-node": "^10.9.0",
     "typescript": "^5.0.0"
-  },
-  "keywords": [
-    "logging",
-    "console",
-    "typescript"
-  ],
-  "author": "",
-  "license": "MIT"
+  }
 }
