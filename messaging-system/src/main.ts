@@ -53,16 +53,16 @@ class MessagingApp {
         this.rl.question("Adicionar prioridade? (s/n) ", (priorityAnswer: string) => {
           let message: MessageInterface = new BasicMessage(messageText);
 
-          if (priorityAnswer.toLowerCase() === 's') {
-            message = new PriorityDecorator(message);
+          if (uppercaseAnswer.toLowerCase() === 's') {
+            message = new UppercaseDecorator(message);
           }
 
           if (timestampAnswer.toLowerCase() === 's') {
             message = new TimestampDecorator(message);
           }
 
-          if (uppercaseAnswer.toLowerCase() === 's') {
-            message = new UppercaseDecorator(message);
+          if (priorityAnswer.toLowerCase() === 's') {
+            message = new PriorityDecorator(message);
           }
 
           console.log(`Mensagem final: ${message.getContent()}\n`);
